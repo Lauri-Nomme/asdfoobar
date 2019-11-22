@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <errno.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -35,7 +36,8 @@ int main() {
     do {
         char buf[1];
         int res = recv(s, &buf, sizeof(buf), MSG_PEEK);
-        printf("recv(.., 1, MSG_PEEK(%08X) - %d\n", MSG_PEEK, res);
+        int lasterror = errno;
+        printf("recv(.., 1, MSG_PEEK(%08X) - %d, errno - %08X, (EAGAIN %08X)\n", MSG_PEEK, res, lasterror, EAGAIN);
         if (res == 0) {
             break;
         }
