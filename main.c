@@ -26,8 +26,8 @@ int main() {
     val = 5;
     res = setsockopt(s, IPPROTO_TCP, TCP_KEEPINTVL, &val, 4);
     printf("setsockopt(.., SOL_TCP(%08X), TCP_KEEPINTVL(%08X), 2) - %d\n", IPPROTO_TCP, TCP_KEEPINTVL, res);
-    res = setsockopt(s, IPPROTO_TCP, TCP_KEEPIDLE, &val, 4);
-    printf("setsockopt(.., SOL_TCP(%08X), TCP_KEEPIDLE(%08X), 2) - %d\n", IPPROTO_TCP, TCP_KEEPIDLE, res);
+    res = setsockopt(s, IPPROTO_TCP, TCP_KEEPALIVE, &val, 4);
+    printf("setsockopt(.., SOL_TCP(%08X), TCP_KEEPIDLE(%08X), 2) - %d\n", IPPROTO_TCP, TCP_KEEPALIVE, res);
     val = 1;
     res = setsockopt(s, SOL_SOCKET, SO_KEEPALIVE, &val, 4);
     printf("setsockopt(.., SOL_SOCKET(%08X), SO_KEEPALIVE(%08X), 2) - %d\n", SOL_SOCKET, SO_KEEPALIVE, res);
