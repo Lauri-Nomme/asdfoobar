@@ -21,13 +21,13 @@ int main() {
     printf("set nonblocking - %d\n", res);
 
     int val = 2;
-    res = setsockopt(s, SOL_TCP, TCP_KEEPCNT, &val, 4);
-    printf("setsockopt(.., SOL_TCP(%08X), TCP_KEEPCNT(%08X), 2) - %d\n", SOL_TCP, TCP_KEEPCNT, res);
+    res = setsockopt(s, IPPROTO_TCP, TCP_KEEPCNT, &val, 4);
+    printf("setsockopt(.., SOL_TCP(%08X), TCP_KEEPCNT(%08X), 2) - %d\n", IPPROTO_TCP, TCP_KEEPCNT, res);
     val = 5;
-    res = setsockopt(s, SOL_TCP, TCP_KEEPINTVL, &val, 4);
-    printf("setsockopt(.., SOL_TCP(%08X), TCP_KEEPINTVL(%08X), 2) - %d\n", SOL_TCP, TCP_KEEPINTVL, res);
-    res = setsockopt(s, SOL_TCP, TCP_KEEPIDLE, &val, 4);
-    printf("setsockopt(.., SOL_TCP(%08X), TCP_KEEPIDLE(%08X), 2) - %d\n", SOL_TCP, TCP_KEEPIDLE, res);
+    res = setsockopt(s, IPPROTO_TCP, TCP_KEEPINTVL, &val, 4);
+    printf("setsockopt(.., SOL_TCP(%08X), TCP_KEEPINTVL(%08X), 2) - %d\n", IPPROTO_TCP, TCP_KEEPINTVL, res);
+    res = setsockopt(s, IPPROTO_TCP, TCP_KEEPIDLE, &val, 4);
+    printf("setsockopt(.., SOL_TCP(%08X), TCP_KEEPIDLE(%08X), 2) - %d\n", IPPROTO_TCP, TCP_KEEPIDLE, res);
     val = 1;
     res = setsockopt(s, SOL_SOCKET, SO_KEEPALIVE, &val, 4);
     printf("setsockopt(.., SOL_SOCKET(%08X), SO_KEEPALIVE(%08X), 2) - %d\n", SOL_SOCKET, SO_KEEPALIVE, res);
